@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MyFinanceInvest.Domain.Validation;
-using MyFinanceInvest.Domain.Validation.Interfaces;
 using MyFinanceInvest.Repository;
 using MyFinanceInvest.Repository.Interfaces;
 using MyFinanceInvest.Service;
@@ -16,8 +14,6 @@ namespace MyFinanceInvest.CrossCutting
 
             services.AddScoped<IBankService, BankService>();
 
-
-
             #endregion
 
             #region Repository
@@ -26,13 +22,6 @@ namespace MyFinanceInvest.CrossCutting
 
 
             #endregion
-
-            #region Validation
-
-            services.AddScoped<IBankValidation, BankValidation>();
-
-            #endregion 
-
 
             return services;
         }

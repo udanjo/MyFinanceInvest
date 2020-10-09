@@ -1,5 +1,4 @@
 ﻿using MyFinanceInvest.Domain.Entities;
-using MyFinanceInvest.Domain.Validation.Interfaces;
 using MyFinanceInvest.Repository.Interfaces;
 using MyFinanceInvest.Service.Interfaces;
 using System;
@@ -45,7 +44,7 @@ namespace MyFinanceInvest.Service
         {
             return Task.Run(() =>
             {
-                return _bankRepository.Get(id).Result; 
+                return _bankRepository.Get(id).Result;
             });
         }
 

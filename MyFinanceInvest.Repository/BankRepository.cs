@@ -1,6 +1,5 @@
 ﻿using MyFinanceInvest.Data.Context.Config;
 using MyFinanceInvest.Domain.Entities;
-using MyFinanceInvest.Domain.Validation.Interfaces;
 using MyFinanceInvest.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -13,13 +12,10 @@ namespace MyFinanceInvest.Repository
     public class BankRepository : IBankRepository
     {
         private readonly ContextManager _context;
-        private readonly IBankValidation _bankValidation;
 
-        public BankRepository(ContextManager context,
-                              IBankValidation bankValidation)
+        public BankRepository(ContextManager context)
         {
             _context = context;
-            _bankValidation = bankValidation;
         }
 
         public Task<List<BankInfo>> All()
@@ -79,14 +75,10 @@ namespace MyFinanceInvest.Repository
         {
             return Task.Run(() =>
             {
-                if (_bankValidation.ValidateSave(info).Result == false)
-                    return false;
-
                 _context.Add(info);
                 _context.SaveChanges();
 
                 return true;
-
             });
         }
 
@@ -94,12 +86,6 @@ namespace MyFinanceInvest.Repository
         {
             return Task.Run(() =>
             {
-                if (_bankValidation.ValidateId(info).Result == false)
-                    return false;
-
-                if (_bankValidation.ValidateSave(info).Result == false)
-                    return false;
-
                 _context.Update(info);
                 _context.SaveChanges();
 

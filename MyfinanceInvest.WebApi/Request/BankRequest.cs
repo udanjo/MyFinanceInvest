@@ -1,4 +1,6 @@
-﻿namespace MyfinanceInvest.WebApi.Request
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MyfinanceInvest.WebApi.Request
 {
     public class BankRequest 
     {

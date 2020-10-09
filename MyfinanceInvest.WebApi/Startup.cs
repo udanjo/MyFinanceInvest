@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyfinanceInvest.WebApi.Infra.Validation;
 using MyFinanceInvest.CrossCutting;
 using MyFinanceInvest.Data.Context.Config;
 using MyFinanceInvest.Infra.Mapper;
@@ -28,7 +30,11 @@ namespace MyfinanceInvest.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             IoC.RegisterServices(services);
-            services.AddMvc().AddJsonOptions(options =>
+            services.AddMvc(opt => 
+            { 
+                opt.Filters.Add(typeof(ValidatorActionFilter)); 
+            }).AddFluentValidation(v => v.RegisterValidatorsFromAssemblyContaining<Startup>())
+            .AddJsonOptions(options =>
             {
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
