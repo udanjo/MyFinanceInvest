@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyFinanceInvest.Data.Context\MyFinanceInvest.Data.Context.csproj" />
+    <ProjectReference Include="..\MyFinanceInvest.Domain\MyFinanceInvest.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
