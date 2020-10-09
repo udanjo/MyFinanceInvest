@@ -2,7 +2,7 @@
 
 Projeto para teste de Arquitetura
 
-.NEt Core 
+.Net Core 
 
 EntityFramework 
 
