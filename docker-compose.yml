@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  myfinanceinvest.webapi:
+    image: ${DOCKER_REGISTRY-}myfinanceinvestwebapi
+    build:
+      context: .
+      dockerfile: MyfinanceInvest.WebApi/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6001:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
