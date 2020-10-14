@@ -29,7 +29,7 @@ namespace MyFinanceInvest.Controller
             return Ok(response);
         }
 
-        [HttpGet, Route("all")]
+        [HttpGet("all")]
         public IActionResult GetAll()
         {
             var banks = _BankService.All().Result;

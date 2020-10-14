@@ -17,7 +17,7 @@ namespace MyFinanceInvest.Data.Context.Config
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"ConnectionString");
+                optionsBuilder.UseSqlServer(@"Server=tcp:myfinanceju.database.windows.net,1433;Initial Catalog=MyFinance;Persist Security Info=False;User ID=udanjo;Password=udsp@2019;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
         public ContextManager(DbContextOptions<ContextManager> options) :
