@@ -3,7 +3,7 @@ using MyFinanceInvest.Repository.Base;
 
 namespace MyFinanceInvest.Repository.Interfaces
 {
-    public interface IBankRepository : IRepository<BankInfo>
+    public interface IBankRepository : IRepositoryBase<BankInfo>
     {
 
     }

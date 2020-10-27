@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace MyFinanceInvest.Controller
 {
-    [Route("bank")]
+    [Route("api/[controller]")]
     public class BankController : ControllerBase
     {
         private readonly IBankService _BankService;
@@ -31,6 +31,14 @@ namespace MyFinanceInvest.Controller
 
         [HttpGet("all")]
         public IActionResult GetAll()
+        {
+            var banks = _BankService.All().Result;
+            var response = _mapper.Map<List<BankResponse>>(banks);
+            return Ok(response);
+        }
+
+        [HttpGet("find")]
+        public IActionResult GetFind([FromBody] BankRequest request)
         {
             var banks = _BankService.All().Result;
             var response = _mapper.Map<List<BankResponse>>(banks);

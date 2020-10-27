@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MyFinanceInvest.Repository.Base
 {
-    public interface IRepository<T> : IDisposable where T : class
+    public interface IRepositoryBase<T> : IDisposable where T : class
     {
         Task<T> Get(int id);
 

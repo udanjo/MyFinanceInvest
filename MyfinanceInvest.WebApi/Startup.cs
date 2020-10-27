@@ -49,6 +49,8 @@ namespace MyfinanceInvest.WebApi
             services.AddSingleton(mapper);
 
             services.AddDbContext<ContextManager>();
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +62,7 @@ namespace MyfinanceInvest.WebApi
             }
 
             app.UseStaticFiles();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
 
         }
