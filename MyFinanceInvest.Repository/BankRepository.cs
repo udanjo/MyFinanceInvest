@@ -20,10 +20,7 @@ namespace MyFinanceInvest.Repository
 
         public Task<List<BankInfo>> All()
         {
-            return Task.Run(() =>
-            {
-                return _context.Bank.OrderBy(o => o.Id).ToList();
-            });
+            return Task.Run(() => _context.Bank.OrderBy(o => o.Id).ToList());
         }
 
         public Task<bool> Delete(int id)
@@ -36,7 +33,6 @@ namespace MyFinanceInvest.Repository
                 _context.SaveChanges();
 
                 return true;
-
             });
         }
 
@@ -56,7 +52,7 @@ namespace MyFinanceInvest.Repository
             _context.Dispose();
         }
 
-        #endregion
+        #endregion Dispose
 
         public Task<List<BankInfo>> Find(Expression<Func<BankInfo, bool>> predicate)
         {
@@ -65,10 +61,7 @@ namespace MyFinanceInvest.Repository
 
         public Task<BankInfo> Get(int id)
         {
-            return Task.Run(() =>
-            {
-                return _context.Bank.Where(w => w.Id == id).FirstOrDefault();
-            });
+            return Task.Run(() => _context.Bank.Where(w => w.Id == id).FirstOrDefault());
         }
 
         public Task<bool> Save(BankInfo info)
@@ -90,7 +83,6 @@ namespace MyFinanceInvest.Repository
                 _context.SaveChanges();
 
                 return true;
-
             });
         }
     }

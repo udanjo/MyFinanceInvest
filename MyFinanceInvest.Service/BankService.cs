@@ -24,10 +24,7 @@ namespace MyFinanceInvest.Service
 
         public Task<bool> Delete(int id)
         {
-            return Task.Run(() =>
-            {
-                return _bankRepository.Delete(id).Result;
-            });
+            return Task.Run(() => _bankRepository.Delete(id).Result);
         }
 
         public void Dispose()
@@ -42,26 +39,17 @@ namespace MyFinanceInvest.Service
 
         public Task<BankInfo> Get(int id)
         {
-            return Task.Run(() =>
-            {
-                return _bankRepository.Get(id).Result;
-            });
+            return Task.Run(() => _bankRepository.Get(id).Result);
         }
 
         public Task<bool> Save(BankInfo info)
         {
-            return Task.Run(() =>
-            {
-                return _bankRepository.Save(info).Result;
-            });
+            return Task.Run(() => _bankRepository.Save(info).Result);
         }
 
         public Task<bool> Update(BankInfo info)
         {
-            return Task.Run(() =>
-            {
-                return _bankRepository.Update(info).Result;
-            });
+            return Task.Run(() => _bankRepository.Update(info).Result);
         }
     }
 }

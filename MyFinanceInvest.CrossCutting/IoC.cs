@@ -14,14 +14,13 @@ namespace MyFinanceInvest.CrossCutting
 
             services.AddScoped<IBankService, BankService>();
 
-            #endregion
+            #endregion Service
 
             #region Repository
 
             services.AddScoped<IBankRepository, BankRepository>();
 
-
-            #endregion
+            #endregion Repository
 
             return services;
         }
